@@ -17,12 +17,12 @@
     <dependency>
     <groupId>org.jfree</groupId>
     <artifactId>jfreechart</artifactId>
-    <version>1.5.3</version> <!-- verifique a versÃ£o mais recente -->
+    <version>1.5.3</version> <!-- verifique a versão mais recente -->
 </dependency>
 <dependency>
     <groupId>org.jfree</groupId>
     <artifactId>jcommon</artifactId>
-    <version>1.0.24</version> <!-- verifique a versÃ£o mais recente -->
+    <version>1.0.24</version> <!-- verifique a versão mais recente -->
 </dependency>
   </dependencies>
 </project>

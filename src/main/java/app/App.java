@@ -22,7 +22,7 @@ import app.classes.SimpleCSVReader;
 public class App 
 {
     
-     @SuppressWarnings("resource")
+    @SuppressWarnings("resource")
     public static void main(String[] args) throws Exception {
         // HashMap<String, long[]> times = new HashMap<String, long[]>();
         // Graph2.testGraph2();
@@ -103,6 +103,10 @@ public class App
         // gerarGrafico(conjunto);
 
         List<double[]> data = readCSV(gerarCsv(conjunto));
+        System.out.println(data.get(0)[0]);
+        System.out.println(data.get(0)[1]);
+        System.out.println(data.get(1)[0]);
+        System.out.println(data.get(1)[1]);
         GraphCreator.createGraph(data);
         
 
@@ -114,7 +118,7 @@ public class App
         int[] array = new int[N];
 
         for (int i = 0; i < N; i++) {
-            array[i] = random.nextInt(100);  // Gera números aleatórios de 0 a 99
+            array[i] = random.nextInt(100);  // Gera n?meros aleat?rios de 0 a 99
         }
 
         return array;
@@ -129,11 +133,12 @@ public class App
 
         static String gerarCsv(MergeSort[] arrays) throws IOException {
             
-        String path = "demo/src/main/java/app/csv/file.csv";
+        String path = "src/main/java/app/csv/file.csv";
+        
         FileWriter writer = null;
         // BufferedWriter writer = new BufferedWriter(new FileWriter("path"));
         try {
-            // Verifica se o arquivo já existe e modifica o nome para evitar sobrescrita
+            // Verifica se o arquivo j? existe e modifica o nome para evitar sobrescrita
             File file = new File(path);
             String originalPath = path;
             int counter = 1;
@@ -184,19 +189,20 @@ public class App
         
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
-            // Ler cabeçalho
-            String header = br.readLine(); // Ignora o cabeçalho
+            // Ler cabe?alho
+            String header = br.readLine(); // Ignora o cabe?alho
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
                 double[] row = new double[values.length];
-                for (int i = 0; i < values.length; i++) {
-                    row[i] = Double.parseDouble(values[i]);
+                row[0] = Double.parseDouble(values[0]);
+                for (int i = 1; i < values.length; i++) {
+                    row[i] = Double.parseDouble(values[i])/1000;
                 }
                 data.add(row);
             }
         } catch (IOException e) {
         }
-        
+        // System.out.println(data.get);
         return data;
         }
 
@@ -230,14 +236,14 @@ public class App
                 String[] StringChaves = keys.stream().map(String::valueOf).toArray(String[]::new);
                 String[] StringTempos = times.stream().map(String::valueOf).toArray(String[]::new);
             
-                // Preparando os valores para o gráfico
+                // Preparando os valores para o gr?fico
                 // int[][] xyValues = { tempos,chaves };
                 String[] xlabels = StringTempos;
                 String[] ylabels = StringChaves;
-                // Preparando os valores para o gráfico
+                // Preparando os valores para o gr?fico
                 // int[][] xyValues = {tempos, chaves};
         
-                // Criando o gráfico
+                // Criando o gr?fico
                 // Graph2 graph = new Graph2(dimensions, adj, xlabels, ylabels, xyValues);
                 Graph2 graph = new Graph2(1200,tempos, chaves , xlabels, ylabels, (String)dados[1][0]);
                 
