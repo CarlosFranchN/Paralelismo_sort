@@ -14,11 +14,9 @@ import java.util.TreeMap;
 import javax.swing.JFrame;
 
 import app.classes.Graph2;
-import app.classes.GraphCreator;
 import app.classes.InsertionSort;
 import app.classes.MergeSort;
 import app.classes.SimpleCSVReader;
-import app.classes.SortingAlgorithm;
 
 
 public class App 
@@ -62,7 +60,7 @@ public class App
         // array.printMapTimes();
         array.gerandoTeste();
         array.printMapTimes();
-        InsertionSort[] conjunto2 = {array};
+        InsertionSort[] conjunto2= {array};
 
 
 
@@ -93,7 +91,7 @@ public class App
             System.out.println();
         }
 
-        static String gerarCsv(SortingAlgorithm[] arrays) throws IOException {
+        static String gerarCsv(MergeSort[] arrays) throws IOException {
             
         String path = "src/main/java/app/csv/file.csv";
         
@@ -117,12 +115,12 @@ public class App
            
             writer.append("Amostra,0,2,4,5,10,100,1000,\n");
 
-            for (SortingAlgorithm array : arrays) {
+            for (MergeSort array : arrays) {
                 array.gerandoTeste();
                 array.printarFinalMap();
                 TreeMap<Integer, Long> map = array.getFinalMap();
                 
-                writer.append(String.valueOf(array.getArray().length) + ",");
+                writer.append(String.valueOf(array.array.length) + ",");
                 for (Entry<Integer, Long> entrada : map.entrySet()) {
                     writer.append(String.valueOf(entrada.getValue())).append(",");
                 }

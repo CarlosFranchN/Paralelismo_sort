@@ -59,14 +59,13 @@ public class GraphCreator {
                 case (double)5 -> nThreads = "100 t";
                 case (double)6 -> nThreads = "1000 t";
                 case (double)7 -> nThreads = "10000 t";
-                case (double)8 -> nThreads = "";
                 default -> throw new AssertionError();
             }
-            System.out.println(dataset.getXValue(series, item));
+            System.out.println(nThreads);
             // System.out.println(tempo);
             try {
-                  // Pega o valor Y
-                return String.format(nThreads +" : %.0f microsegs", tempo);  // Simplesmente retorna o valor de Y
+                double yValue = dataset.getYValue(series, item);  // Pega o valor Y
+                return String.format("Y: %.0f microsegs", tempo);  // Simplesmente retorna o valor de Y
             } catch (Exception e) {
                 System.out.println("Erro ao gerar o label: " + e.getMessage());
                 return "";

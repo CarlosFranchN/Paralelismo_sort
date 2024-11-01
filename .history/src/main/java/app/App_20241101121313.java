@@ -122,7 +122,7 @@ public class App
                 array.printarFinalMap();
                 TreeMap<Integer, Long> map = array.getFinalMap();
                 
-                writer.append(String.valueOf(array.getArray().length) + ",");
+                writer.append(String.valueOf(array.array.length) + ",");
                 for (Entry<Integer, Long> entrada : map.entrySet()) {
                     writer.append(String.valueOf(entrada.getValue())).append(",");
                 }

@@ -14,11 +14,9 @@ import java.util.TreeMap;
 import javax.swing.JFrame;
 
 import app.classes.Graph2;
-import app.classes.GraphCreator;
 import app.classes.InsertionSort;
 import app.classes.MergeSort;
 import app.classes.SimpleCSVReader;
-import app.classes.SortingAlgorithm;
 
 
 public class App 
@@ -33,14 +31,12 @@ public class App
         int[] arr = gerarArrayAleatorio(1000);
         int[] arr2 = gerarArrayAleatorio(100);
         int[] arr3 = gerarArrayAleatorio(10);
-
-
         // MergeSort array = new MergeSort(arr, 0, arr.length-1, 2);
         // MergeSort array2 = new MergeSort(arr2, 0, arr2.length-1, 2);
         // MergeSort array3 = new MergeSort(arr3, 0, arr3.length-1, 2);
         // MergeSortParalelo_test newArray = new MergeSortParalelo_test(arr, 0, arr.length-1);
         // System.out.println(array.array);
-        // MergeSort[] conjunto1= {array,array2,array3};
+        // MergeSort[] conjunto= {array,array2,array3};
 
 
 
@@ -62,12 +58,6 @@ public class App
         // array.printMapTimes();
         array.gerandoTeste();
         array.printMapTimes();
-        InsertionSort[] conjunto2 = {array};
-
-
-
-        List<double[]> data2 = readCSV(gerarCsv(conjunto2));
-        GraphCreator.createGraph(data2);
 
 
         
@@ -93,7 +83,7 @@ public class App
             System.out.println();
         }
 
-        static String gerarCsv(SortingAlgorithm[] arrays) throws IOException {
+        static String gerarCsv(MergeSort[] arrays) throws IOException {
             
         String path = "src/main/java/app/csv/file.csv";
         
@@ -117,12 +107,12 @@ public class App
            
             writer.append("Amostra,0,2,4,5,10,100,1000,\n");
 
-            for (SortingAlgorithm array : arrays) {
+            for (MergeSort array : arrays) {
                 array.gerandoTeste();
                 array.printarFinalMap();
                 TreeMap<Integer, Long> map = array.getFinalMap();
                 
-                writer.append(String.valueOf(array.getArray().length) + ",");
+                writer.append(String.valueOf(array.array.length) + ",");
                 for (Entry<Integer, Long> entrada : map.entrySet()) {
                     writer.append(String.valueOf(entrada.getValue())).append(",");
                 }

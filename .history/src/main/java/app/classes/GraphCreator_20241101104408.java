@@ -17,6 +17,8 @@ import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
+
 public class GraphCreator {
     public static void createGraph(List<double[]> data) {
         XYSeriesCollection dataset = new XYSeriesCollection();
@@ -48,31 +50,41 @@ public class GraphCreator {
         renderer.setDefaultItemLabelGenerator(new XYItemLabelGenerator() {
         @Override
         public String generateLabel(XYDataset dataset, int series, int item) {
-            String nThreads ;
+            String nThreads = "";
             double tempo = dataset.getYValue(series, item);
-            switch (dataset.getXValue(series, item)) {
-                case (double)0 -> nThreads = "Seq";
-                case (double)1 -> nThreads = "2 t";
-                case (double)2 -> nThreads = "4 t";
-                case (double)3 -> nThreads = "5 t";
-                case (double)4 -> nThreads = "10 t";
-                case (double)5 -> nThreads = "100 t";
-                case (double)6 -> nThreads = "1000 t";
-                case (double)7 -> nThreads = "10000 t";
-                case (double)8 -> nThreads = "";
-                default -> throw new AssertionError();
+            switch (dataset.getYValue(series, item)) {
+                case (double)0:
+                    nThreads = "Seq";
+                    break;
+                case (double)1:
+                    nThreads = "2 t";
+                    break;
+                case (double)2:
+                    nThreads = "4 t";
+                    break;
+                case (double)3:
+                    nThreads = "5 t";
+                    break;
+                case (double)4:
+                    nThreads = "10 t";
+                    break;
+                case (double)5:
+                    nThreads = "100 t";
+                    break;
+                case (double)6:
+                    nThreads = "1000 t";
+                    break;
+                case (double)7:
+                    nThreads = "10000 t";
+                    break;
+                default:
+                    throw new AssertionError();
             }
-            System.out.println(dataset.getXValue(series, item));
+            // System.out.println(nThreads);
             // System.out.println(tempo);
-            try {
-                  // Pega o valor Y
-                return String.format(nThreads +" : %.0f microsegs", tempo);  // Simplesmente retorna o valor de Y
-            } catch (Exception e) {
-                System.out.println("Erro ao gerar o label: " + e.getMessage());
-                return "";
-            }
+
                 
-                // return String.format("%s %.0f microsegs", nThreads,tempo);
+                return String.format(nThreads+"%.0f microsegs", dataset.getYValue(series, item));
             }
         });
         renderer.setDefaultToolTipGenerator(new StandardXYToolTipGenerator(

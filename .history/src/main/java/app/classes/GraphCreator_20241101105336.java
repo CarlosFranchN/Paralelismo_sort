@@ -66,7 +66,7 @@ public class GraphCreator {
             // System.out.println(tempo);
             try {
                   // Pega o valor Y
-                return String.format(nThreads +" : %.0f microsegs", tempo);  // Simplesmente retorna o valor de Y
+                return String.format("Y: %.0f microsegs", tempo);  // Simplesmente retorna o valor de Y
             } catch (Exception e) {
                 System.out.println("Erro ao gerar o label: " + e.getMessage());
                 return "";

@@ -7,7 +7,21 @@
   <version>1.0-SNAPSHOT</version>
   <name>demo</name>
   <url>http://maven.apache.org</url>
-  <dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <compilerArgs>
+                        <arg>--enable-preview</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -17,12 +31,15 @@
     <dependency>
     <groupId>org.jfree</groupId>
     <artifactId>jfreechart</artifactId>
-    <version>1.5.3</version> <!-- verifique a versão mais recente -->
+    <version>1.5.3</version> <!-- verifique a versï¿½o mais recente -->
 </dependency>
 <dependency>
     <groupId>org.jfree</groupId>
     <artifactId>jcommon</artifactId>
-    <version>1.0.24</version> <!-- verifique a versão mais recente -->
+    <version>1.0.24</version> <!-- verifique a versï¿½o mais recente -->
 </dependency>
   </dependencies>
+    <properties>
+        <maven.compiler.release>23</maven.compiler.release>
+    </properties>
 </project>

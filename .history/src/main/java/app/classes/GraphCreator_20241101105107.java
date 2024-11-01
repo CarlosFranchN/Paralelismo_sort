@@ -50,7 +50,7 @@ public class GraphCreator {
         public String generateLabel(XYDataset dataset, int series, int item) {
             String nThreads ;
             double tempo = dataset.getYValue(series, item);
-            switch (dataset.getXValue(series, item)) {
+            switch (dataset.getYValue(series, item)) {
                 case (double)0 -> nThreads = "Seq";
                 case (double)1 -> nThreads = "2 t";
                 case (double)2 -> nThreads = "4 t";
@@ -59,14 +59,13 @@ public class GraphCreator {
                 case (double)5 -> nThreads = "100 t";
                 case (double)6 -> nThreads = "1000 t";
                 case (double)7 -> nThreads = "10000 t";
-                case (double)8 -> nThreads = "";
                 default -> throw new AssertionError();
             }
-            System.out.println(dataset.getXValue(series, item));
+            System.out.println(nThreads);
             // System.out.println(tempo);
             try {
-                  // Pega o valor Y
-                return String.format(nThreads +" : %.0f microsegs", tempo);  // Simplesmente retorna o valor de Y
+                double yValue = dataset.getYValue(series, item);  // Pega o valor Y
+                return String.format("Y: %.0f microsegs", tempo);  // Simplesmente retorna o valor de Y
             } catch (Exception e) {
                 System.out.println("Erro ao gerar o label: " + e.getMessage());
                 return "";
