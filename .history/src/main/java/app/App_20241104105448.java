@@ -15,7 +15,6 @@ import javax.swing.JFrame;
 
 import app.classes.Graph2;
 import app.classes.GraphCreator;
-import app.classes.InsertionSort;
 import app.classes.MergeSort;
 import app.classes.SimpleCSVReader;
 import app.classes.SortingAlgorithm;

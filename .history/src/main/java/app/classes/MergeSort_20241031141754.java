@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.RecursiveAction;
 
-public class MergeSort extends RecursiveAction implements SortingAlgorithm {
+public class MergeSort extends RecursiveAction {
     public int[] array;
     public int[] array_ord_paralelo;
     public int[] array_ord_serial;
@@ -181,11 +181,6 @@ public class MergeSort extends RecursiveAction implements SortingAlgorithm {
         } catch (Exception e) {
             System.out.println("Erro");
         }
-    }
-
-    @Override
-    public int[] getArray() {
-        return array;
     }
 
 }

@@ -15,7 +15,6 @@ import javax.swing.JFrame;
 
 import app.classes.Graph2;
 import app.classes.GraphCreator;
-import app.classes.InsertionSort;
 import app.classes.MergeSort;
 import app.classes.SimpleCSVReader;
 import app.classes.SortingAlgorithm;
@@ -45,18 +44,18 @@ public class App
 
         List<double[]> data = readCSV(gerarCsv(conjunto1));
         GraphCreator.createGraph(data);
-        InsertionSort arrayI1 = new InsertionSort(arr);
-        InsertionSort arrayI2 = new InsertionSort(arr2);
-        InsertionSort arrayI3 = new InsertionSort(arr3);
+        // InsertionSort arrayI1 = new InsertionSort(arr);
+        // InsertionSort arrayI2 = new InsertionSort(arr2);
+        // InsertionSort arrayI3 = new InsertionSort(arr3);
 
-        array.gerandoTeste();
-        array.printMapTimes();
-        InsertionSort[] conjunto2 = {arrayI1,arrayI2,arrayI3};
+        // array.gerandoTeste();
+        // array.printMapTimes();
+        // InsertionSort[] conjunto2 = {arrayI1,arrayI2,arrayI3};
 
 
 
-        List<double[]> data2 = readCSV(gerarCsv(conjunto2));
-        GraphCreator.createGraph(data2);
+        // List<double[]> data2 = readCSV(gerarCsv(conjunto2));
+        // GraphCreator.createGraph(data2);
 
 
         

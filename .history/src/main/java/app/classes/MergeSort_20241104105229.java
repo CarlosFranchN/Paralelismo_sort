@@ -183,9 +183,4 @@ public class MergeSort extends RecursiveAction implements SortingAlgorithm {
         }
     }
 
-    @Override
-    public int[] getArray() {
-        return array;
-    }
-
 }
