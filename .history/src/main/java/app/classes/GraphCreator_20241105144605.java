@@ -21,10 +21,10 @@ public class GraphCreator {
     public static void createGraph(List<double[]> data, String title) {
         XYSeriesCollection dataset = new XYSeriesCollection();
         
-        for (int i = 0; i < data.size(); i++) {
+        for (int i = 1; i <= data.size(); i++) {
             XYSeries series = new XYSeries("Amostra " + (data.get(i)[0]));
             double[] row = data.get(i);
-            for (int j = 1; j < row.length; j++) {
+            for (int j = 0; j < row.length; j++) {
                 System.out.println("x " + j);
                 System.out.println("y " + row[j]);
                 series.add(j, row[j]);
@@ -54,31 +54,31 @@ public class GraphCreator {
             double tempo = dataset.getYValue(series, item);
             int value = (int) dataset.getXValue(series, item); // Converte para int
             switch (value) {
-                case 1:
+                case 0:
                     nThreads = "Seq";
                     break;
-                case 2:
+                case 1:
                     nThreads = "2 t";
                     break;
-                case 3:
+                case 2:
                     nThreads = "4 t";
                     break;
-                case 4:
+                case 3:
                     nThreads = "5 t";
                     break;
-                case 5:
+                case 4:
                     nThreads = "10 t";
                     break;
-                case 6:
+                case 5:
                     nThreads = "100 t";
                     break;
-                case 7:
+                case 6:
                     nThreads = "1000 t";
                     break;
-                case 8:
+                case 7:
                     nThreads = "10000 t";
                     break;
-                case 9:
+                case 8:
                     nThreads = "";
                     break;
                 default:

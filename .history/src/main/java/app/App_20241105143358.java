@@ -16,7 +16,6 @@ import javax.swing.JFrame;
 import app.classes.BubbleSort;
 import app.classes.Graph2;
 import app.classes.GraphCreator;
-import app.classes.InsertionSort;
 import app.classes.MergeSort;
 import app.classes.SimpleCSVReader;
 import app.classes.SortingAlgorithm;
@@ -36,28 +35,28 @@ public class App
         int[] arr3 = gerarArrayAleatorio(10);
 
 
-        MergeSort array = new MergeSort(arr, 0, arr.length-1, 2);
-        MergeSort array2 = new MergeSort(arr2, 0, arr2.length-1, 2);
-        MergeSort array3 = new MergeSort(arr3, 0, arr3.length-1, 2);
+        // MergeSort array = new MergeSort(arr, 0, arr.length-1, 2);
+        // MergeSort array2 = new MergeSort(arr2, 0, arr2.length-1, 2);
+        // MergeSort array3 = new MergeSort(arr3, 0, arr3.length-1, 2);
 
-        MergeSort[] conjunto1= {array,array2,array3};
-
-
-
-        List<double[]> data = readCSV(gerarCsv(conjunto1));
-        GraphCreator.createGraph(data,"Merge");
-        InsertionSort arrayI1 = new InsertionSort(arr);
-        InsertionSort arrayI2 = new InsertionSort(arr2);
-        InsertionSort arrayI3 = new InsertionSort(arr3);
-
-        arrayI1.gerandoTeste();
-        arrayI2.printMapTimes();
-        InsertionSort[] conjunto2 = {arrayI1,arrayI2,arrayI3};
+        // MergeSort[] conjunto1= {array,array2,array3};
 
 
 
-        List<double[]> data2 = readCSV(gerarCsv(conjunto2));
-        GraphCreator.createGraph(data2,"Insert");
+        // List<double[]> data = readCSV(gerarCsv(conjunto1));
+        // GraphCreator.createGraph(data);
+        // InsertionSort arrayI1 = new InsertionSort(arr);
+        // InsertionSort arrayI2 = new InsertionSort(arr2);
+        // InsertionSort arrayI3 = new InsertionSort(arr3);
+
+        // arrayI1.gerandoTeste();
+        // arrayI2.printMapTimes();
+        // InsertionSort[] conjunto2 = {arrayI1,arrayI2,arrayI3};
+
+
+
+        // List<double[]> data2 = readCSV(gerarCsv(conjunto2));
+        // GraphCreator.createGraph(data2);
 
         BubbleSort arrayB1 = new BubbleSort(arr);
         BubbleSort arrayB2 = new BubbleSort(arr2);
@@ -69,8 +68,8 @@ public class App
 
 
 
-        List<double[]> data3 = readCSV(gerarCsv(conjunto3));
-        GraphCreator.createGraph(data3, "Bubble");
+        List<double[]> data2 = readCSV(gerarCsv(conjunto3));
+        GraphCreator.createGraph(data2);
 
         
 
@@ -185,7 +184,7 @@ public class App
                 // Inicializando mergeSort com dados do CSV
                 for(int j = 1;j <=3;j++){
 
-                    for (int i = 2; i <= 8; i++) {  // Ajustar o range conforme o CSV
+                    for (int i = 1; i <= 8; i++) {  // Ajustar o range conforme o CSV
                         times.add(Double.parseDouble(dados[1][i]) / 1000); // Nanossegundo para microssegundo
                         // keys.add(Double.parseDouble(dados[0][i]));
                         keys.add((double) i);
